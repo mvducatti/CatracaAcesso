@@ -1,3 +1,4 @@
+
 import urllib, json
 
 class CatracaAPI:
@@ -18,6 +19,6 @@ class CatracaAPI:
     def catracaShow(self):   
         try:
             jsonCatraca = self.getJsonCatraca()['catraca'][0] 
-            print "%s  %s  %s  %s  %s  %s  %s  %s" % (jsonCatraca['COD_LIBERACAO'],jsonCatraca['COD_EVENTO'],jsonCatraca['VALOR_EVENTO'], jsonCatraca['COD_VIA_CARTEIRA'], jsonCatraca['MSG1'],jsonCatraca['MSG2'] ,jsonCatraca['NOM_PESSOA'], jsonCatraca['DES_EVENTO'])
-        except Exception:
-            print "Problema em exibir o resultado"
+            print "%s  %s  %s  %s  %s %s %s %s" % (jsonCatraca['COD_LIBERACAO'],jsonCatraca['COD_EVENTO'],jsonCatraca['VALOR_EVENTO'], jsonCatraca['COD_VIA_CARTEIRA'], jsonCatraca['MSG1'], jsonCatraca['MSG2'], jsonCatraca['NOM_PESSOA'], jsonCatraca['DES_EVENTO'])   
+        except Exception as e:
+            print jsonCatraca['MSG2']
