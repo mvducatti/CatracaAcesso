@@ -1,3 +1,4 @@
+
 import os
 from  CatracaAPI import CatracaAPI
 
@@ -38,17 +39,21 @@ try:
         os.system('cls')         
         showInformation()        
         departamentId =int(raw_input('DIGITE O NUMERO DO DEPARTAMENTO: '))
-               
-        if(departamentId==0):break 
+
+        if(departamentId == 0):break
             
         COD_DEPARTAMENTO = numberDepartamentDb(departamentId)
 
         while True:
-            COD_PESSOA = int(raw_input('DIGITE O RA: '))            
-            if(COD_PESSOA == 0):break 
+            COD_PESSOA = int(raw_input('DIGITE O RA: '))  
+            if(COD_PESSOA == 0):
+                print "RA invalido"
             CatracaAPI(COD_DEPARTAMENTO,COD_PESSOA).catracaShow()
-                                   
-except ValueError:
-    print "Not a number"
+            departamentId =int(raw_input('DIGITE O NUMERO DO DEPARTAMENTO: ')) 
+            if(departamentId==0):break
+            COD_DEPARTAMENTO = numberDepartamentDb(departamentId)
+            
+except BaseException as e:
+    print e         
 
 os.system('cls')
