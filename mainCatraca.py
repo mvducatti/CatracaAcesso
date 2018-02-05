@@ -40,20 +40,20 @@ try:
         showInformation()        
         departamentId =int(raw_input('DIGITE O NUMERO DO DEPARTAMENTO: '))
 
-        if(departamentId == 0):break
+        if(departamentId == 0):continue 
             
         COD_DEPARTAMENTO = numberDepartamentDb(departamentId)
 
         while True:
             COD_PESSOA = int(raw_input('DIGITE O RA: '))  
-            if(COD_PESSOA == 0):
-                print "RA invalido"
+            if(COD_PESSOA == 0):break
             CatracaAPI(COD_DEPARTAMENTO,COD_PESSOA).catracaShow()
-            departamentId =int(raw_input('DIGITE O NUMERO DO DEPARTAMENTO: ')) 
-            if(departamentId==0):break
-            COD_DEPARTAMENTO = numberDepartamentDb(departamentId)
+            # departamentId =int(raw_input('DIGITE O NUMERO DO DEPARTAMENTO: ')) 
+            if(departamentId==0):break   
+            # COD_DEPARTAMENTO = numberDepartamentDb(departamentId)
             
-except BaseException as e:
-    print e         
+except Exception as e:
+    print 'RA ou Departamento Invalido, por favor reinicie o programa'
+    raw_input()
 
 os.system('cls')
